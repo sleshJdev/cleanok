@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {LoginService} from "./common/login/login.service";
+import {LoginService} from './common/login/login.service';
 
 @Component({
   selector: 'app-root',
@@ -31,8 +31,7 @@ export class AppComponent {
       .login({
         [this.resolveContactType()]: this.credentials.contact,
         password: this.credentials.password
-      })
-      .subscribe();
+      }).subscribe();
   }
 
 }
