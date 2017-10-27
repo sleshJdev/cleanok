@@ -1,0 +1,29 @@
+<div class="form__container">
+  <form class="form">
+    <div class="form__row">
+      <label>
+        <span>{{contactType.email}}</span>
+        <input type="radio" name="contactType" [(ngModel)]="selectedContactType" value="{{contactType.email}}">
+      </label>
+      <label>
+        <span>{{contactType.phone}}</span>
+        <input type="radio" name="contactType" [(ngModel)]="selectedContactType" value="{{contactType.phone}}">
+      </label>
+    </div>
+    <div class="form__row">
+      <label>
+        <span>{{selectedContactType}}:</span>
+        <input type="{{resolveContactType()}}" name="contact" [(ngModel)]="credentials.contact">
+      </label>
+    </div>
+    <div class="form__row">
+      <label>
+        Password:
+        <input type="password" [(ngModel)]="credentials.password" name="password">
+      </label>
+    </div>
+    <div class="form__row">
+      <button type="button" (click)="login()">Login</button>
+    </div>
+  </form>
+</div>

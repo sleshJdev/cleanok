@@ -7,15 +7,23 @@ import {HttpService} from './common/http/http.service';
 import {LoginService} from './common/login/login.service';
 import {FormsModule} from '@angular/forms';
 import AppConfig from './config/app.config';
+import {LoginComponent} from './login/login.component';
+import AppRoutesModule from './app-routes.module';
+import {HomeComponent} from './home/home.component';
+
+//todo: resolve compilation error: Cannot use 'in' operator to search for 'providers' in null
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    LoginComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
     HttpModule,
-    FormsModule
+    FormsModule,
+    AppRoutesModule
   ],
   providers: [HttpService, LoginService, AppConfig],
   bootstrap: [AppComponent]
