@@ -24,7 +24,8 @@ router.post('/', (req, res, next) => {
             phone: user.phone,
             address: user.address
           },
-          appConfig.secretKey,
+          appConfig.auth.secretKey,
+          appConfig.auth.jwtOptions,
           (error, token) => {
             if (error) {
               next(error);

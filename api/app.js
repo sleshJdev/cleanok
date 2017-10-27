@@ -4,6 +4,7 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 // const favicon require('serve-favicon');
 const path = require('path');
+const appConfig = require('./config/app.config');
 const HttpError = require('./error/http-error');
 
 const app = express();
@@ -15,6 +16,7 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use(require('./filter/authenticate'));
 app.use('/', require('./routes/index'));
 app.use('/api/login', require('./routes/login'));
 app.use('/api/users', require('./routes/users'));
