@@ -6,9 +6,9 @@ const AuthError = require('../error/auth-error');
 
 router.post('/', (req, res, next) => {
   User.findOne(
-    {
-      email: req.body.email
-    },
+    req.body.email
+      ? {email: req.body.email}
+      : {tel: req.body.tel},
     (error, user) => {
       if (error) {
         next(error);
@@ -29,7 +29,9 @@ router.post('/', (req, res, next) => {
             if (error) {
               next(error);
             } else {
-              res.send(token);
+              res.send({
+                token: token
+              });
             }
           });
       }

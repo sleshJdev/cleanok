@@ -1,9 +1,10 @@
 import {Injectable} from '@angular/core';
-import {Http, RequestOptions, Headers} from '@angular/http';
+import {Http, RequestOptions, Headers, ResponseContentType} from '@angular/http';
 
 @Injectable()
-export class Http1Service {
+export class HttpService {
   private options = new RequestOptions({
+    responseType: ResponseContentType.Json,
     headers: new Headers({
       'Content-Type': 'application/json'
     })

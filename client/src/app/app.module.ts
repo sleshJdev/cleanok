@@ -3,7 +3,9 @@ import {BrowserModule} from '@angular/platform-browser';
 import {HttpModule} from "@angular/http";
 
 import {AppComponent} from './app.component';
-import {Http1Service} from "./common/http/http.service";
+import {HttpService} from "./common/http/http.service";
+import {LoginService} from "./common/login/login.service";
+import {FormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -11,9 +13,10 @@ import {Http1Service} from "./common/http/http.service";
   ],
   imports: [
     BrowserModule,
-    HttpModule
+    HttpModule,
+    FormsModule
   ],
-  providers: [Http1Service],
+  providers: [HttpService, LoginService],
   bootstrap: [AppComponent]
 })
 export class AppModule {
