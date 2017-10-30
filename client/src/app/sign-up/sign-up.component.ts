@@ -17,8 +17,9 @@ export class SignUpComponent implements OnInit {
   ngOnInit() {
   }
 
-  singUp() {
-    this.httpService.signUp(this.user)
+  signUp() {
+    this.httpService
+      .signUp(this.user)
       .subscribe();
   }
 

@@ -7,6 +7,7 @@ const appConfig = require('../config/app.config');
 module.exports = express.Router()
   .post('/', (req, res, next) => {
     const user = new User(req.body);
+    user.role = 'client';
     user.save((error, user) => {
       if (error) {
         return next(error);

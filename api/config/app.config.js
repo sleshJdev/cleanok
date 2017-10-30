@@ -1,6 +1,6 @@
 const appConfig = {
   authTokenHeaderName: 'X-Auth-Token',
-  whiteListedUrls: ['sign-in'],
+  whiteListedUrls: ['sign-in', 'sign-up'],
   email: {
     from: 'havecleanok@gmail.com',
     transport: {

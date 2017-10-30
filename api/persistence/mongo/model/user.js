@@ -19,8 +19,7 @@ const User = new Schema({
     unique: true
   },
   address: {
-    type: String,
-    required: true
+    type: String
   },
   password: {
     type: String,
