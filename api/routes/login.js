@@ -31,6 +31,7 @@ router.post('/', (req, res, next) => {
               next(error);
             } else {
               res.send({
+                tokenName: appConfig.authTokenHeaderName,
                 token: token
               });
             }

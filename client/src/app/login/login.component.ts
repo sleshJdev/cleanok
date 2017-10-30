@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {LoginService} from '../common/login/login.service';
+import {HttpService} from '../common/http/http.service';
 
 @Component({
   selector: 'app-login',
@@ -18,7 +18,7 @@ export class LoginComponent implements OnInit {
     password: null,
   };
 
-  constructor(private loginService: LoginService) {
+  constructor(private httpService: HttpService) {
     this.selectedContactType = this.contactType.email;
   }
 
@@ -30,7 +30,7 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
-    this.loginService
+    this.httpService
       .login({
         [this.resolveContactType()]: this.credentials.contact,
         password: this.credentials.password
