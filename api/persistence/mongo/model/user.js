@@ -30,6 +30,10 @@ const User = new Schema({
     type: String,
     required: true,
     enum: ['admin', 'client', 'company']
+  },
+  active: {
+    type: Boolean,
+    default: false
   }
 });
 

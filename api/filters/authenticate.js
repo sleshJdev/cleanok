@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const appConfig = require('../config/app.config');
 const jwt = require('jsonwebtoken');
-const AuthError = require('../error/auth-error');
+const AuthError = require('../errors/auth-error');
 
 router.all(/\/api\/(.*?)(?:\/|$)/, (req, res, next) => {
   const whiteListed = appConfig.whiteListedUrls.some((url) => {

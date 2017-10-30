@@ -1,8 +1,8 @@
 const express = require('express');
-const HttpError = require('../error/http-error');
+const HttpError = require('../errors/http-error');
 const User = require('../persistence/mongo/model/user');
 
-module.exports = express.Router()
+module.exports = express.Router({strict: true})
   .get('/', (req, res, next) => {
     User
       .find({})
@@ -26,16 +26,6 @@ module.exports = express.Router()
           res.send(user);
         }
       });
-  })
-  .post('/', (req, res, next) => {
-    const user = new User(req.body);
-    user.save((error, user) => {
-      if (error) {
-        next(error);
-      } else {
-        res.send({_id: user._id});
-      }
-    });
   })
   .delete('/:id', (req, res, next) => {
     User.findById(

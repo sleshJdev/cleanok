@@ -1,1 +1,6 @@
 @import "assets/stylesheets/form.css";
+
+.app-container {
+  display: flex;
+  justify-content: center;
+}

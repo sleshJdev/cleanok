@@ -1,0 +1,37 @@
+<div class="form__container">
+  <form class="form">
+    <div class="form__row">
+      <label>
+        <span>Name:</span>
+        <input name="name" [(ngModel)]="user.name">
+      </label>
+    </div>
+    <div class="form__row">
+      <label>
+        <span>Email:</span>
+        <input name="email" type="email" [(ngModel)]="user.email">
+      </label>
+    </div>
+    <div class="form__row">
+      <label>
+        <span>Tel:</span>
+        <input name="tel" type="tel" [(ngModel)]="user.tel">
+      </label>
+    </div>
+    <div class="form__row">
+      <label>
+        <span>Password:</span>
+        <input name="password" type="password" [(ngModel)]="user.password">
+      </label>
+    </div>
+    <div class="form__row">
+      <label>
+        <span>Confirm password:</span>
+        <input name="password" type="password" [(ngModel)]="userPassword">
+      </label>
+    </div>
+    <div class="form__row">
+      <button>Sin Up</button>
+    </div>
+  </form>
+</div>

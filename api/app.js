@@ -5,20 +5,21 @@ const logger = require('morgan');
 // const favicon require('serve-favicon');
 const path = require('path');
 const appConfig = require('./config/app.config');
-const HttpError = require('./error/http-error');
+const HttpError = require('./errors/http-error');
 
 const app = express();
 
-//app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+// app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use(require('./filter/authenticate'));
+app.use(require('./filters/authenticate'));
 app.use('/', require('./routes/index'));
-app.use('/api/login', require('./routes/login'));
+app.use('/api/sign-in', require('./routes/sign-in'));
+app.use('/api/sign-up', require('./routes/sign-up'));
 app.use('/api/users', require('./routes/users'));
 
 app.use((req, res, next) => {

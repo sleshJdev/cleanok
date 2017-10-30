@@ -9,13 +9,17 @@ export class HttpService {
   }
 
   singIn(credentials) {
-    return this.post('/api/sing-in', credentials)
+    return this.post('/api/sign-in', credentials)
       .map(response => response.json())
       .do(authDetails => {
         const token = authDetails.token;
         this.authHeaderName = token.name;
         localStorage.setItem(token.name, token.value);
       });
+  }
+
+  signUp(user) {
+    return this.post('/api/sign-up', user);
   }
 
   get(url) {
