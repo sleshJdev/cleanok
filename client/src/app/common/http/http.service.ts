@@ -11,9 +11,10 @@ export class HttpService {
   login(credentials) {
     return this.post('/api/login', credentials)
       .map(response => response.json())
-      .do(tokenDetails => {
-        this.authHeaderName = tokenDetails.tokenName;
-        localStorage.setItem(tokenDetails.tokenName, tokenDetails.token);
+      .do(authDetails => {
+        const token = authDetails.token;
+        this.authHeaderName = token.name;
+        localStorage.setItem(token.name, token.value);
       });
   }
 
