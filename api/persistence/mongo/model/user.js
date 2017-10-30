@@ -5,15 +5,18 @@ const Schema = mongoose.Schema;
 const User = new Schema({
   name: {
     type: String,
-    required: true
+    required: true,
+    unique: true
   },
   email: {
     type: String,
-    required: true
+    required: true,
+    unique: true
   },
   tel: {
     type: String,
-    required: true
+    required: true,
+    unique: true
   },
   address: {
     type: String,
@@ -22,6 +25,11 @@ const User = new Schema({
   password: {
     type: String,
     required: true
+  },
+  role: {
+    type: String,
+    required: true,
+    enum: ['admin', 'client', 'company']
   }
 });
 
