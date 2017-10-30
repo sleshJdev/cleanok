@@ -5,7 +5,7 @@ import {HomeComponent} from './home/home.component';
 
 const routes: Routes = [
   {path: 'login', component: LoginComponent},
-  {path: '', component: HomeComponent}
+  {path: '', component: HomeComponent, pathMatch: 'full'}
 ];
 
 @NgModule({
@@ -13,8 +13,7 @@ const routes: Routes = [
     RouterModule.forRoot(routes)
   ]
 })
-class AppRoutesModule {
+
+export class AppRoutesModule {
 
 }
-
-export default AppRoutesModule
