@@ -8,8 +8,8 @@ export class HttpService {
   constructor(private http: Http) {
   }
 
-  login(credentials) {
-    return this.post('/api/login', credentials)
+  singIn(credentials) {
+    return this.post('/api/sing-in', credentials)
       .map(response => response.json())
       .do(authDetails => {
         const token = authDetails.token;

@@ -5,14 +5,14 @@ import {HttpModule} from '@angular/http';
 import {AppComponent} from './app.component';
 import {HttpService} from './common/http/http.service';
 import {FormsModule} from '@angular/forms';
-import {LoginComponent} from './login/login.component';
+import {SingInComponent} from './sing-in/sing-in.component';
 import {AppRoutesModule} from './app-routes.module';
 import {HomeComponent} from './home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent,
+    SingInComponent,
     HomeComponent
   ],
   imports: [

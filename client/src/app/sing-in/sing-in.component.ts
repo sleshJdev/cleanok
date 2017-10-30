@@ -3,10 +3,10 @@ import {HttpService} from '../common/http/http.service';
 
 @Component({
   selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  templateUrl: './sing-in.component.html',
+  styleUrls: ['./sing-in.component.css']
 })
-export class LoginComponent implements OnInit {
+export class SingInComponent implements OnInit {
 
   protected contactType = {
     email: 'Email',
@@ -31,7 +31,7 @@ export class LoginComponent implements OnInit {
 
   login() {
     this.httpService
-      .login({
+      .singIn({
         [this.resolveContactType()]: this.credentials.contact,
         password: this.credentials.password
       }).subscribe();

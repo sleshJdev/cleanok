@@ -1,6 +1,6 @@
 const appConfig = {
   authTokenHeaderName: 'X-Auth-Token',
-  whiteListedUrls: ['login'],
+  whiteListedUrls: ['sing-in'],
   auth: {
     secretKey: 'GJVXPODXa3zHdr1RU2Na3EGqA1jTfpxV',
     jwtOptions: {
