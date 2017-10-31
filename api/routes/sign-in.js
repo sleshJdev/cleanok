@@ -22,9 +22,9 @@ module.exports = express.Router()
         }
         const userDetails = user.toJSON();
         delete userDetails.password;
-        JwtService.sign(
-          userDetails,
-          (token) => {
+        JwtService
+          .sign(userDetails)
+          .then((token) => {
             res.send({
               userDetails: userDetails,
               token: {
@@ -32,7 +32,6 @@ module.exports = express.Router()
                 value: token
               }
             });
-          },
-          next);
+          }).catch(next);
       });
   });
