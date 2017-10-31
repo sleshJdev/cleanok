@@ -20,7 +20,20 @@ export class SignUpComponent implements OnInit {
   signUp() {
     this.httpService
       .signUp(this.user)
-      .subscribe();
+      .map(response => response.json())
+      .subscribe(response => {
+        alert(response.message);
+        switch (response.verificationType) {
+          case 'tel':
+            this.httpService.verifyCode(
+              this.user.tel,
+              prompt('Enter verification code')
+            ).subscribe(() => {
+              alert('Ok');
+            });
+            break;
+        }
+      });
   }
 
 }

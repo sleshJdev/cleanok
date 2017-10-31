@@ -1,6 +1,11 @@
 const appConfig = {
   authTokenHeaderName: 'X-Auth-Token',
   whiteListedUrls: ['sign-in', 'sign-up'],
+  twilio: {
+    sid: 'ACd21218408e14e17917a4c7a12d0270c1',
+    secret: '2c37348e23c84f2e19e7e5fc86683389',
+    from: '+17039726976'
+  },
   email: {
     from: 'havecleanok@gmail.com',
     transport: {
@@ -18,7 +23,8 @@ const appConfig = {
     secretKey: 'GJVXPODXa3zHdr1RU2Na3EGqA1jTfpxV',
     jwtOptions: {
       expiresIn: 8 * 60 * 60
-    }
+    },
+    codeSize: 6
   },
   persistence: {
     mongo: {

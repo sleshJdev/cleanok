@@ -22,15 +22,22 @@ export class HttpService {
     return this.post('/api/sign-up', user);
   }
 
-  get(url) {
-    return this.http.get(url, this.getOptions());
+  verifyCode(tel, code) {
+    return this.get('/api/sign-up/verification/tel', {
+      tel: tel,
+      code: code
+    });
+  }
+
+  get(url, params) {
+    return this.http.get(url, this.getOptions(params));
   }
 
   post(url, data) {
     return this.http.post(url, data, this.getOptions());
   }
 
-  private getOptions() {
+  private getOptions(params: any = null) {
     const headers = new Headers({
       'Content-Type': 'application/json',
     });
@@ -40,7 +47,8 @@ export class HttpService {
     }
     return new RequestOptions({
       responseType: ResponseContentType.Json,
-      headers: headers
+      headers: headers,
+      params: params
     });
   }
 

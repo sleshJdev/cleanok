@@ -2,30 +2,34 @@ const appConfig = require('../config/app.config');
 const jwt = require('jsonwebtoken');
 
 module.exports = {
-  sign: (claims, onsuccess, onerror) => {
-    jwt.sign(
-      claims,
-      appConfig.auth.secretKey,
-      appConfig.auth.jwtOptions,
-      (error, token) => {
-        if (error) {
-          onerror(error);
-        } else {
-          onsuccess(token);
-        }
-      })
+  sign: (claims) => {
+    return new Promise((success, reject) => {
+      jwt.sign(
+        claims,
+        appConfig.auth.secretKey,
+        appConfig.auth.jwtOptions,
+        (error, token) => {
+          if (error) {
+            reject(error);
+          } else {
+            success(token);
+          }
+        });
+    });
   },
-  verify: (token, onsuccess, onerror) => {
-    jwt.verify(
-      token,
-      appConfig.auth.secretKey,
-      (error, claims) => {
-        if (error) {
-          onerror(error);
-        } else {
-          onsuccess(claims);
+  verify: (token) => {
+    return new Promise((success, reject) => {
+      jwt.verify(
+        token,
+        appConfig.auth.secretKey,
+        (error, claims) => {
+          if (error) {
+            reject(error);
+          } else {
+            success(claims);
+          }
         }
-      }
-    )
+      );
+    });
   }
 };

@@ -9,13 +9,16 @@ const email = new Email({
 });
 
 module.exports = {
-  sendVerificationLetter: (to, params, onsuccess, onerror) => {
+  sendVerificationLetter: (user, token) => {
     return email.send({
       template: 'verification',
       message: {
-        to: to
+        to: user.email
       },
-      locals: params
-    }).then(onsuccess).catch(onerror);
+      locals: {
+        name: user.name,
+        url: `${appConfig.auth.verificationUrl}?token=${token}`
+      }
+    });
   }
 };

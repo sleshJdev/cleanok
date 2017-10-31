@@ -27,7 +27,7 @@ const User = new Schema({
   },
   role: {
     type: String,
-    required: true,
+    default: 'client',
     enum: ['admin', 'client', 'company']
   },
   active: {
