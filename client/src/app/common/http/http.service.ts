@@ -11,10 +11,11 @@ export class HttpService {
   singIn(credentials) {
     return this.post('/api/sign-in', credentials)
       .map(response => response.json())
-      .do(authDetails => {
+      .map(authDetails => {
         const token = authDetails.token;
         this.authHeaderName = token.name;
         localStorage.setItem(token.name, token.value);
+        return authDetails.userDetails;
       });
   }
 

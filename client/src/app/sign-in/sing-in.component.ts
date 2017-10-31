@@ -1,5 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {HttpService} from '../common/http/http.service';
+import {Role} from '../enum/role.enum';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -18,7 +20,8 @@ export class SingInComponent implements OnInit {
     password: null,
   };
 
-  constructor(private httpService: HttpService) {
+  constructor(private httpService: HttpService,
+              private router: Router) {
     this.selectedContactType = this.contactType.email;
   }
 
@@ -34,7 +37,15 @@ export class SingInComponent implements OnInit {
       .singIn({
         [this.resolveContactType()]: this.credentials.contact,
         password: this.credentials.password
-      }).subscribe();
+      })
+      .subscribe((userDetails) => {
+        const role: string = userDetails.role;
+        switch (Role[role]) {
+          case Role.admin:
+            this.router.navigateByUrl('/admin');
+            break;
+        }
+      });
   }
 
 }
