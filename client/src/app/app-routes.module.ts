@@ -4,11 +4,14 @@ import {SingInComponent} from './sign-in/sing-in.component';
 import {HomeComponent} from './home/home.component';
 import {SignUpComponent} from './sign-up/sign-up.component';
 import {AdminComponent} from './admin/admin.component';
+import {CompanyComponent} from './company/company.component';
+import {CompaniesComponent} from './company/list/companies.component';
 
 const routes: Routes = [
   {path: 'sing-in', component: SingInComponent},
   {path: 'sing-up', component: SignUpComponent},
   {path: 'admin', component: AdminComponent},
+  {path: 'companies', component: CompaniesComponent},
   {path: '', component: HomeComponent, pathMatch: 'full'}
 ];
 

@@ -9,6 +9,8 @@ import {AppRoutesModule} from './app-routes.module';
 import {HomeComponent} from './home/home.component';
 import {SignUpComponent} from './sign-up/sign-up.component';
 import { AdminComponent } from './admin/admin.component';
+import { CompanyComponent } from './company/company.component';
+import { CompaniesComponent } from './company/list/companies.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,9 @@ import { AdminComponent } from './admin/admin.component';
     SingInComponent,
     HomeComponent,
     SignUpComponent,
-    AdminComponent
+    AdminComponent,
+    CompanyComponent,
+    CompaniesComponent
   ],
   imports: [
     BrowserModule,
