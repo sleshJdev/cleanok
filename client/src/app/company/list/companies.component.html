@@ -1,0 +1,21 @@
+<div class="grid">
+  <div>Title</div>
+  <div>Email</div>
+  <div>Status</div>
+  <div>Actions</div>
+  <div class="grid__body">
+    <div *ngFor="let company of companies">
+      <div>{{company.title}}</div>
+      <div>{{company.email}}</div>
+      <div>
+        <div>{{company.status}}</div>
+        <span *ngIf="isBlock(company)">({{company.comment}})</span>
+      </div>
+      <div>
+        <button (click)="changeStatus(company)">
+          {{isBlock(company) ? 'Activate' : 'Block'}}
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
