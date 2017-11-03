@@ -44,6 +44,9 @@ export class SingInComponent implements OnInit {
           case Role.admin:
             this.router.navigateByUrl('/companies');
             break;
+          default:
+            this.router.navigateByUrl('/');
+            break;
         }
       });
   }
