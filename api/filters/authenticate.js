@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const appConfig = require('../config/app.config');
-const jwt = require('jsonwebtoken');
+const jwtService = require('../services/jwt-service');
 const AuthError = require('../errors/auth-error');
 
 router.all(/\/api\/(.*?)(?:\/|$)/, (req, res, next) => {
@@ -17,18 +17,10 @@ router.all(/\/api\/(.*?)(?:\/|$)/, (req, res, next) => {
     return next(new AuthError('Authentication is failed. The authentication token is missing', 403));
   }
 
-  jwt.verify(
-    token,
-    appConfig.auth.secretKey,
-    (error, claims) => {
-      if (error) {
-        next(error);
-      } else {
-        req.claims = claims;
-        next();
-      }
-    }
-  );
+  jwtService
+    .verify(token)
+    .then(claims => req.claims = claims)
+    .catch(next);
 });
 
 module.exports = router;
