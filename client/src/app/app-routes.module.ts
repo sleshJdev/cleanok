@@ -10,6 +10,7 @@ const routes: Routes = [
   {path: 'sing-in', component: SingInComponent},
   {path: 'sing-up', component: SignUpComponent},
   {path: 'companies', component: CompaniesComponent},
+  {path: 'companies/new', component: CompanyComponent},
   {path: '', component: HomeComponent, pathMatch: 'full'}
 ];
 

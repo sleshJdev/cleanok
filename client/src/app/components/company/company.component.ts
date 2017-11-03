@@ -8,7 +8,12 @@ import {UserStatus} from '../../enum/user-status.enum';
 })
 export class CompanyComponent implements OnInit {
 
-
+  protected company: any = {
+    logo: null,
+    title: null,
+    description: null,
+    services: [],
+  };
 
   constructor() {
   }

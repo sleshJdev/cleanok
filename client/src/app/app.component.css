@@ -8,8 +8,10 @@ html {
   box-sizing: border-box;
 }
 
-*, *:before, *:after {
-  box-sizing: inherit;
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
 }
 
 body {
@@ -39,9 +41,6 @@ body {
 
 .nav__item {
   text-transform: uppercase;
-}
-
-.nav__item {
   padding: 0.5em 1em;
 }
 
@@ -60,17 +59,9 @@ body {
 
 @media only screen and (max-device-width: 500px) {
 
-  .container {
-    display: grid;
-    grid-template-rows: 150px auto auto 100px;
-    grid-template-columns: 1fr;
-    grid-template-areas: "header" "nav" "content" "footer";
-  }
-
   .nav {
     grid-area: nav;
-    border-right: none;
-    /*border-bottom: 1px solid gray;*/
+    flex-direction: column;
   }
 
 }
