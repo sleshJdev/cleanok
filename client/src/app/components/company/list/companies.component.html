@@ -1,0 +1,27 @@
+<div class="table-container">
+  <table class="table">
+    <thead>
+    <tr>
+      <th>Title</th>
+      <th>Email</th>
+      <th>Status</th>
+      <th class="column--actions">Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let company of companies">
+      <td>{{company.title}}</td>
+      <td>{{company.email}}</td>
+      <td>
+        <span>{{company.status}}</span>
+        <span *ngIf="isBlock(company)">({{company.comment}})</span>
+      </td>
+      <td>
+        <button (click)="changeStatus(company)">
+          {{isBlock(company) ? 'Activate' : 'Block'}}
+        </button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>

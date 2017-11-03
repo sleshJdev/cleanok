@@ -4,13 +4,12 @@ import {HttpModule} from '@angular/http';
 import {AppComponent} from './app.component';
 import {HttpService} from './common/http/http.service';
 import {FormsModule} from '@angular/forms';
-import {SingInComponent} from './sign-in/sing-in.component';
+import {SingInComponent} from './components/sign-in/sing-in.component';
 import {AppRoutesModule} from './app-routes.module';
-import {HomeComponent} from './home/home.component';
-import {SignUpComponent} from './sign-up/sign-up.component';
-import { AdminComponent } from './admin/admin.component';
-import { CompanyComponent } from './company/company.component';
-import { CompaniesComponent } from './company/list/companies.component';
+import {HomeComponent} from './components/home/home.component';
+import {SignUpComponent} from './components/sign-up/sign-up.component';
+import { CompanyComponent } from './components/company/company.component';
+import { CompaniesComponent } from './components/company/list/companies.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +17,6 @@ import { CompaniesComponent } from './company/list/companies.component';
     SingInComponent,
     HomeComponent,
     SignUpComponent,
-    AdminComponent,
     CompanyComponent,
     CompaniesComponent
   ],

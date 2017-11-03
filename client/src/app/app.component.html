@@ -1,14 +1,21 @@
 <div class="container">
-  <div class="header">
-
-  </div>
-  <div class="nav">
-
-  </div>
-  <div class="container">
+  <nav class="nav">
+    <div class="nav__item">
+      <a routerLink="/companies">Companies</a>
+    </div>
+    <div class="nav__item">
+      <a routerLink="/sing-up">Sing Up</a>
+    </div>
+    <div class="nav__item">
+      <a routerLink="/sing-in">Sing In</a>
+    </div>
+  </nav>
+  <header class="header">
+  </header>
+  <div class="content">
     <router-outlet></router-outlet>
   </div>
-  <div class="footer">
-
-  </div>
+  <footer class="footer">
+    <h4>© 2017 CleanOk</h4>
+  </footer>
 </div>

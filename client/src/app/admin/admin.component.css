@@ -1,9 +1,0 @@
-.menu {
-  display: flex;
-}
-
-.menu__item {
-  display: flex;
-  text-transform: uppercase;
-  padding: 1em 2em;
-}

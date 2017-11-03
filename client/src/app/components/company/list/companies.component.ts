@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {UserStatus} from '../../enum/user-status.enum';
+import {UserStatus} from '../../../enum/user-status.enum';
 
 @Component({
   selector: 'app-companies',
