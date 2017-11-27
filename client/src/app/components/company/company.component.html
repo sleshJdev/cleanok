@@ -1,33 +1,32 @@
-<div class="form__container">
-  <div class="form">
-    <div class="form__row">
-      <label>
-        <span>Title:</span>
-        <input [(ngModel)]="company.title" name="title">
-      </label>
-    </div>
-    <div class="form__row">
-      <label>
-        <span>Description:</span>
-        <input [(ngModel)]="company.description" name="description">
-      </label>
-    </div>
-    <div class="form__row">
-      <div>Rendered services:</div>
-      <div>
-        <span>Service</span>
-        <span>Service</span>
-        <span>Service</span>
-        <span>Service</span>
-        <span>Service</span>
-        <span>Service</span>
-        <span>Service</span>
-      </div>
-    </div>
-    <div class="form__row">
-      <label>
-
-      </label>
-    </div>
+<form [formGroup]="form">
+  <div>
+    <mat-form-field>
+      <input matInput formControlName="title">
+      <mat-placeholder>Title</mat-placeholder>
+      <mat-error *ngIf="form.controls.title.hasError('required')">
+        Title is required
+      </mat-error>
+    </mat-form-field>
   </div>
-</div>
+  <div>
+    <mat-form-field>
+      <input matInput formControlName="email">
+      <mat-placeholder>Email</mat-placeholder>
+      <mat-error *ngIf="form.controls.email.hasError('required')">
+        Email is required
+      </mat-error>
+    </mat-form-field>
+  </div>
+  <div>
+    <mat-form-field>
+      <mat-select formControlName="status">
+        <mat-option [value]="'active'">Active</mat-option>
+        <mat-option [value]="'block'">Block</mat-option>
+      </mat-select>
+      <mat-placeholder>Status</mat-placeholder>
+    </mat-form-field>
+  </div>
+  <div>
+    <button mat-raised-button (click)="save()">Save</button>
+  </div>
+</form>

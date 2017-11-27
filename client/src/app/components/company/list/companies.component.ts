@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {UserStatus} from '../../../enum/user-status.enum';
+import {MatTableDataSource} from '@angular/material';
 
 @Component({
   selector: 'app-companies',
@@ -8,12 +9,13 @@ import {UserStatus} from '../../../enum/user-status.enum';
 })
 export class CompaniesComponent implements OnInit {
 
-  protected companies: any[];
+  protected displayedColumns = ['position', 'email', 'status'];
+  protected companies;
 
   constructor() { }
 
   ngOnInit() {
-    this.companies = [{
+    this.companies = new MatTableDataSource([{
       title: 'Big Brothers',
       email: 'bigbrothers@mail.com',
       status: UserStatus[UserStatus.active],
@@ -28,7 +30,7 @@ export class CompaniesComponent implements OnInit {
       email: 'martincookies@mail.com',
       status: UserStatus[UserStatus.block],
       comment: 'Terms of User violation'
-    }]
+    }]);
   }
 
   isBlock(company) {
