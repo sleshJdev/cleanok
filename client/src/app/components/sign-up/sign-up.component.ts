@@ -6,7 +6,7 @@ import {HttpService} from '../../common/http/http.service';
   templateUrl: './sign-up.component.html',
   styleUrls: ['./sign-up.component.css']
 })
-export class SignUpComponent implements OnInit {
+export class SignUpComponent {
 
   protected user: any = {};
   protected userPassword: string = null;
@@ -14,14 +14,10 @@ export class SignUpComponent implements OnInit {
   constructor(private httpService: HttpService) {
   }
 
-  ngOnInit() {
-  }
-
   signUp() {
     this.httpService
       .signUp(this.user)
-      .map(response => response.json())
-      .subscribe(response => {
+      .subscribe((response: any) => {
         alert(response.message);
         switch (response.verificationType) {
           case 'tel':

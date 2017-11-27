@@ -19,7 +19,10 @@ router.all(/\/api\/(.*?)(?:\/|$)/, (req, res, next) => {
 
   jwtService
     .verify(token)
-    .then(claims => req.claims = claims)
+    .then(claims => {
+      req.claims = claims;
+      next();
+    })
     .catch(next);
 });
 

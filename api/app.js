@@ -21,6 +21,7 @@ app.use('/', require('./routes/index'));
 app.use('/api/sign-in', require('./routes/sign-in'));
 app.use('/api/sign-up', require('./routes/sign-up'));
 app.use('/api/users', require('./routes/users'));
+app.use('/api/companies', require('./routes/comapnies'));
 
 app.use((req, res, next) => {
   next(new HttpError('Not Found', 404));

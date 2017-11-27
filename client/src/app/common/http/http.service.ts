@@ -1,17 +1,16 @@
 import {Injectable} from '@angular/core';
-import {Http, RequestOptions, Headers, ResponseContentType} from '@angular/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 
 @Injectable()
 export class HttpService {
   private authHeaderName: string;
 
-  constructor(private http: Http) {
+  constructor(private httpClient: HttpClient) {
   }
 
   singIn(credentials) {
     return this.post('/api/sign-in', credentials)
-      .map(response => response.json())
-      .map(authDetails => {
+      .map((authDetails: any) => {
         const token = authDetails.token;
         this.authHeaderName = token.name;
         localStorage.setItem(token.name, token.value);
@@ -31,26 +30,24 @@ export class HttpService {
   }
 
   get(url, params) {
-    return this.http.get(url, this.getOptions(params));
+    return this.httpClient.get(url, this.getOptions(params));
   }
 
   post(url, data) {
-    return this.http.post(url, data, this.getOptions());
+    return this.httpClient.post(url, data, this.getOptions());
   }
 
-  private getOptions(params: any = null) {
-    const headers = new Headers({
+  private getOptions(params: { [param: string]: string | string[]; } = null) {
+    let headers = new HttpHeaders({
       'Content-Type': 'application/json',
     });
     const token: any = localStorage.getItem(this.authHeaderName);
     if (token) {
-      headers.append(this.authHeaderName, token);
+      headers = headers.append(this.authHeaderName, token);
     }
-    return new RequestOptions({
-      responseType: ResponseContentType.Json,
-      headers: headers,
-      params: params
-    });
+    return {
+      headers: headers
+    };
   }
 
 }
